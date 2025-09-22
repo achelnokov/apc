@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Client\ClientController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,4 +19,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('home');
+
+    Route::prefix('clients')->group(function () {
+        Route::get('/', [ClientController::class, 'list']);
+    });
 });

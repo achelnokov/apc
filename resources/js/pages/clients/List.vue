@@ -7,7 +7,9 @@ import AppLayout from '@/layouts/AppLayout.vue';
 <template>
   <div>
   <AppLayout>
-      DASHBOARD TEST
+      <v-btn color="success" prepend-icon="mdi-plus">Добавить клиента</v-btn>
+      <hr class="mt-4">
+
   </AppLayout>
   </div>
 </template>
