@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, router } from '@inertiajs/vue3';
 import { ref } from 'vue'
+import { logout } from 'App/Http/Controllers/Auth/AuthController'
 
 
   const drawer = ref(true)
@@ -27,9 +28,11 @@ import { ref } from 'vue'
 
         <template v-slot:append>
           <div class="pa-2">
+            <Link href="logout" method="POST">
             <v-btn block>
-              Logout
+              Выйти
             </v-btn>
+            </Link>
           </div>
         </template>
       </v-navigation-drawer>

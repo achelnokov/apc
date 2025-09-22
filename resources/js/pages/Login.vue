@@ -14,7 +14,9 @@ const form = reactive({
 
 function submit() {
     loading.value = true
-    router.post('/login', form)
+    let request = router.post('/login', form, {onFinish: function(){
+        loading.value = false
+    }})
 
 }
 </script>
@@ -52,7 +54,7 @@ function submit() {
                             ></v-text-field>
 
                         <v-btn block class="mb-8" size="large" variant="tonal" type="submit" :loading="loading">
-                            Войти {{loading}}
+                            Войти
                         </v-btn>
                     </v-form>
                 </v-card>
