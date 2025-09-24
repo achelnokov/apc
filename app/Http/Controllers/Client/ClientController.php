@@ -8,7 +8,6 @@ use App\Http\Services\Client\ClientService;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -21,7 +20,7 @@ class ClientController extends Controller
 
     public function list(Request $request) {
         return Inertia::render('clients/List', [
-            'clients_list' => (new Client())->simplePaginate(15),
+            'clients_list' => (new Client())->paginate(15),
         ]);
     }
 

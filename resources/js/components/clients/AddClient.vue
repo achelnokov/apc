@@ -12,7 +12,6 @@ const form = reactive({
 
 function createClient() {
     loading.value = true
-
     router.post('/clients', form, {onFinish: function(){
         loading.value = false
         dialog.value = false
@@ -23,8 +22,6 @@ function createClient() {
 
 
 <template>
-
-
     <div>
         <v-dialog
         v-model="dialog"
@@ -59,7 +56,6 @@ function createClient() {
                     variant="flat"
                     color="error"
                     @click="dialog = false"
-                    
                     :loading="loading"
                 ></v-btn>
 
@@ -68,7 +64,6 @@ function createClient() {
                     text="Сохранить и открыть"
                     variant="flat"
                     @click="createClient()"
-                    
                     :loading="loading"
                 ></v-btn>
             </v-card-actions>
