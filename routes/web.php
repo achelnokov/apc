@@ -20,7 +20,8 @@ Route::middleware(['auth'])->group(function () {
         return Inertia::render('Dashboard');
     })->name('home');
 
-    Route::prefix('clients')->group(function () {
-        Route::get('/', [ClientController::class, 'list']);
+    Route::prefix('clients')->name('clients.')->group(function () {
+        Route::get('/', [ClientController::class, 'list'])->name('list');
+        Route::post('/', [ClientController::class, 'create'])->name('create');
     });
 });
